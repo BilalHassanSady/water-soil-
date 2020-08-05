@@ -1,0 +1,19 @@
+#define sensor A0
+#define pump 10
+int valueSensor ;
+void setup() {
+  pinMode(pump,OUTPUT);
+  digitalWrite(pump,LOW);
+}
+
+void loop() {
+  valueSensor = analogRead(A0);
+  valueSensor = map(valueSensor,200,1023,100,0);
+  valueSensor = constrain(valueSensor,0,100);
+  if(valueSensor<50){
+    digitalWrite(pump,HIGH);
+  }
+  else if(valueSensor>80){
+    digitalWrite(pump,HIGH);
+  }
+}
